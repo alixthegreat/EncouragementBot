@@ -1,9 +1,11 @@
-const Discord = require("discord.js")
-const client = new Discord.Client()
+const Discord = require('discord.js');
+const client = new Discord.Client({ intents: [
+  "GUILDS",
+  "GUILD_MEMBERS"
+] });
 
 client.on("ready", () => {
-  console.log('Logged in as $
-  {client.user.tag}!')
+  console.log(`Logged in as ${client.user.tag}`)
 })
 
 client.on("message", () => {
@@ -12,4 +14,4 @@ client.on("message", () => {
   }
 })
 
-client.login()
+client.login(process.env.TOKEN)
